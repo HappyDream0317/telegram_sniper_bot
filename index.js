@@ -221,9 +221,13 @@ const getETHPrice = async () => {
 
 const main = async () => {
     wssProvider.on("block", async (blk) => {
-        await getETHPrice();
-        console.log(blk);
-        await analyzeBlock(blk);
+        try {
+            await getETHPrice();
+            console.log(blk);
+            await analyzeBlock(blk);
+        } catch (e) {
+
+        }
     })
 }
 // 🧬 Socials: Telegram | <a href="https://your-website-url.com">Website</a> |
